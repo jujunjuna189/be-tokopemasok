@@ -24,7 +24,11 @@ class StoreController extends BaseController
     public function create(Request $request)
     {
         $store = new StoreModel;
-        $store->fill($request->except('id'));
+        $store->fill($request->except('id', 'image'));
+        if ($request->has('image')) {
+            $store_image = $this->upload_image($request, 'store', 'image');
+            $store->image = $store_image;
+        }
         $store->save();
 
         return $this->successResponse('Success buat data', [
@@ -37,7 +41,11 @@ class StoreController extends BaseController
         $store = StoreModel::find($request->id);
         if (!$store) return $this->notFoundResponse('Toko tidak ditemukan', []);
 
-        $store->fill($request->except('id'));
+        $store->fill($request->except('id', 'image'));
+        if ($request->has('image')) {
+            $store_image = $this->upload_image($request, 'store', 'image');
+            $store->image = $store_image;
+        }
         $store->save();
 
         return $this->successResponse('Success ubah data', [
