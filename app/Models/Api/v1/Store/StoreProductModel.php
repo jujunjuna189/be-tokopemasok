@@ -10,7 +10,7 @@ class StoreProductModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'store_product_model';
+    protected $table = 'store_product';
     protected $guarded = ['id'];
 
     public function product()

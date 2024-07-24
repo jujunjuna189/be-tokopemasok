@@ -9,6 +9,6 @@ class StoreUserModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'store_user_model';
+    protected $table = 'store_user';
     protected $guarded = ['id'];
 }

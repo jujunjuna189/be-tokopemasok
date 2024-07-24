@@ -9,7 +9,7 @@ class StoreModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'store_model';
+    protected $table = 'store';
     protected $guarded = ['id'];
 
     public function storeProductModel()
