@@ -18,6 +18,22 @@ Route::group(['prefix' => 'v1'], function ($router) {
         Route::post('/delete', [App\Http\Controllers\Api\v1\User\UserAddressController::class, 'delete'])->middleware('auth:sanctum');
     });
 
+    // Toko
+    Route::group(['prefix' => 'store'], function ($router) {
+        Route::get('/', [App\Http\Controllers\Api\v1\Store\StoreController::class, 'get']);
+        Route::post('/create', [App\Http\Controllers\Api\v1\Store\StoreController::class, 'create'])->middleware('auth:sanctum');
+        Route::post('/update', [App\Http\Controllers\Api\v1\Store\StoreController::class, 'update'])->middleware('auth:sanctum');
+        Route::post('/delete', [App\Http\Controllers\Api\v1\Store\StoreController::class, 'delete'])->middleware('auth:sanctum');
+
+        // Toko Product
+        Route::group(['prefix' => 'product'], function ($router) {
+            Route::get('/', [App\Http\Controllers\Api\v1\Store\StoreProductController::class, 'get']);
+            Route::post('/create', [App\Http\Controllers\Api\v1\Store\StoreProductController::class, 'create'])->middleware('auth:sanctum');
+            Route::post('/update', [App\Http\Controllers\Api\v1\Store\StoreProductController::class, 'update'])->middleware('auth:sanctum');
+            Route::post('/delete', [App\Http\Controllers\Api\v1\Store\StoreProductController::class, 'delete'])->middleware('auth:sanctum');
+        });
+    });
+
     // Product
     Route::group(['prefix' => 'product'], function ($router) {
         Route::get('/', [App\Http\Controllers\Api\v1\Product\ProductController::class, 'get']);
