@@ -14,7 +14,7 @@ class StoreProductController extends BaseController
 {
     public function get(Request $request)
     {
-        $store_product = QueryBuilder::for(StoreProductModel::class)->allowedFilters([AllowedFilter::exact('id'), AllowedFilter::exact('product_id')])->allowedIncludes([])->paginate()->appends(request()->query());
+        $store_product = QueryBuilder::for(StoreProductModel::class)->allowedFilters([AllowedFilter::exact('id'), AllowedFilter::exact('store_id'), AllowedFilter::exact('product_id')])->allowedIncludes([])->paginate()->appends(request()->query());
 
         return $this->successResponse('Success show data', [
             'store_product' => $store_product,
