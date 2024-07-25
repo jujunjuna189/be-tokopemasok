@@ -11,9 +11,4 @@ class StoreModel extends Model
 
     protected $table = 'store';
     protected $guarded = ['id'];
-
-    public function storeProductModel()
-    {
-        return $this->hasMany(StoreProductModel::class, 'store_id', 'id');
-    }
 }

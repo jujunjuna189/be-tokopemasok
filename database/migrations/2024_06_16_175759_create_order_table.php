@@ -43,6 +43,7 @@ return new class extends Migration
             $table->bigInteger('order_product_id')->comment('Relation to table order product');
             $table->string('order_number');
             $table->bigInteger('id')->comment('Product id from table product');
+            $table->bigInteger('store_id');
             $table->string('image')->nullable();
             $table->string('title');
             $table->text('detail')->nullable();

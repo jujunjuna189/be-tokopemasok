@@ -24,13 +24,6 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->timestamps();
         });
-
-        Schema::create('store_product', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('store_id');
-            $table->bigInteger('product_id');
-            $table->timestamps();
-        });
     }
 
     /**
@@ -39,6 +32,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('store');
-        Schema::dropIfExists('store_member');
+        Schema::dropIfExists('store_user');
     }
 };

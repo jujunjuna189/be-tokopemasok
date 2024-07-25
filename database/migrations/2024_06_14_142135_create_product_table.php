@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('product', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('store_id');
             $table->string('image')->nullable();
             $table->string('title');
             $table->text('detail')->nullable();
