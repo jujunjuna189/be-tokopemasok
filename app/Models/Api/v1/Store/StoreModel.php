@@ -11,4 +11,9 @@ class StoreModel extends Model
 
     protected $table = 'store';
     protected $guarded = ['id'];
+
+    public function getImageAttribute($value)
+    {
+        return !is_null($value) ? url('') . "/$value" : null;
+    }
 }
