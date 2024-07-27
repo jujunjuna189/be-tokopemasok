@@ -13,7 +13,7 @@ class ProductController extends BaseController
 {
     public function get(Request $request)
     {
-        $product = QueryBuilder::for(ProductModel::class)->allowedFilters([AllowedFilter::exact('id')])->allowedIncludes(['price'])->paginate()->appends(request()->query());
+        $product = QueryBuilder::for(ProductModel::class)->allowedFilters([AllowedFilter::exact('id'), AllowedFilter::exact('store_id')])->allowedIncludes(['price'])->paginate()->appends(request()->query());
 
         return $this->successResponse('Success show data', [
             'product' => $product,
