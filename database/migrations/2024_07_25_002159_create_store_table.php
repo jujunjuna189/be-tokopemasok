@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('store', function (Blueprint $table) {
             $table->id();
+            $table->string('domain')->unique();
             $table->string('image')->nullable();
             $table->string('name');
             $table->timestamps();

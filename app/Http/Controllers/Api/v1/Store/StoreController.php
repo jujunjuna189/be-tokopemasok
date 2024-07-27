@@ -14,7 +14,7 @@ class StoreController extends BaseController
 {
     public function get(Request $request)
     {
-        $store = QueryBuilder::for(StoreModel::class)->allowedFilters([AllowedFilter::exact('id')])->allowedIncludes([])->paginate()->appends(request()->query());
+        $store = QueryBuilder::for(StoreModel::class)->allowedFilters([AllowedFilter::exact('id'), 'domain'])->allowedIncludes([])->paginate()->appends(request()->query());
 
         return $this->successResponse('Success show data', [
             'store' => $store,
